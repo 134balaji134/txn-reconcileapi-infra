@@ -54,7 +54,7 @@
 flowchart TD
     subgraph VPC
       direction TB
-      ALB[ALB\n(HTTPS Listener)]
+      ALB[ALB<br>(HTTPS Listener)]
       subgraph Blue
         ASG_Blue[ASG (Blue)\nEC2 instances]
         TG_Blue[TG-Blue]
