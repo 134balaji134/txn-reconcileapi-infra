@@ -53,14 +53,13 @@
 ```mermaid
 flowchart TD
     subgraph VPC
-      direction TB
       ALB[ALB<br>(HTTPS Listener)]
       subgraph Blue
-        ASG_Blue[ASG (Blue)\nEC2 instances]
+        ASG_Blue[ASG (Blue)<br>EC2 instances]
         TG_Blue[TG-Blue]
       end
       subgraph Green
-        ASG_Green[ASG (Green)\nEC2 instances]
+        ASG_Green[ASG (Green)<br>EC2 instances]
         TG_Green[TG-Green]
       end
       ALB --> TG_Blue
@@ -70,7 +69,6 @@ flowchart TD
     end
     enduser((User)) -->|HTTPS| ALB
 ```
-
 ---
 
 ## Security
