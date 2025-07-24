@@ -48,28 +48,6 @@
 
 ---
 
-## Logical Architecture Diagram
-
-```mermaid
-flowchart TD
-  enduser((User)) -->|HTTPS| ALB
-  subgraph VPC
-    ALB[ALB (HTTPS Listener)]
-    subgraph Blue
-      TG_Blue[TG-Blue]
-      ASG_Blue[ASG Blue EC2 instances]
-      TG_Blue <--> ASG_Blue
-    end
-    subgraph Green
-      TG_Green[TG-Green]
-      ASG_Green[ASG Green EC2 instances]
-      TG_Green <--> ASG_Green
-    end
-    ALB --> TG_Blue
-    ALB --> TG_Green
-  end
-```
-
 ## Security
 
 - ALB only allows HTTPS from the internet
