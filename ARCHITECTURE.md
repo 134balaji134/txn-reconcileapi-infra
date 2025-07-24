@@ -52,24 +52,23 @@
 
 ```mermaid
 flowchart TD
-    subgraph VPC
-      ALB[ALB<br>(HTTPS Listener)]
-      subgraph Blue
-        ASG_Blue[ASG (Blue)<br>EC2 instances]
-        TG_Blue[TG-Blue]
-      end
-      subgraph Green
-        ASG_Green[ASG (Green)<br>EC2 instances]
-        TG_Green[TG-Green]
-      end
-      ALB --> TG_Blue
-      ALB --> TG_Green
-      TG_Blue <---> ASG_Blue
-      TG_Green <---> ASG_Green
+  enduser((User)) -->|HTTPS| ALB
+  subgraph VPC
+    ALB[ALB (HTTPS Listener)]
+    subgraph Blue
+      ASG_Blue[ASG Blue EC2 instances]
+      TG_Blue[TG-Blue]
     end
-    enduser((User)) -->|HTTPS| ALB
+    subgraph Green
+      ASG_Green[ASG Green EC2 instances]
+      TG_Green[TG-Green]
+    end
+    ALB --> TG_Blue
+    ALB --> TG_Green
+    TG_Blue <---> ASG_Blue
+    TG_Green <---> ASG_Green
+  end
 ```
----
 
 ## Security
 
