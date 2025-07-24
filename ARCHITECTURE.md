@@ -56,17 +56,17 @@ flowchart TD
   subgraph VPC
     ALB[ALB (HTTPS Listener)]
     subgraph Blue
-      ASG_Blue[ASG Blue EC2 instances]
       TG_Blue[TG-Blue]
+      ASG_Blue[ASG Blue EC2 instances]
+      TG_Blue <--> ASG_Blue
     end
     subgraph Green
-      ASG_Green[ASG Green EC2 instances]
       TG_Green[TG-Green]
+      ASG_Green[ASG Green EC2 instances]
+      TG_Green <--> ASG_Green
     end
     ALB --> TG_Blue
     ALB --> TG_Green
-    TG_Blue <---> ASG_Blue
-    TG_Green <---> ASG_Green
   end
 ```
 
